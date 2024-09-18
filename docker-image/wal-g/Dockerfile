@@ -1,6 +1,6 @@
-FROM golang:1.14.1-alpine3.11 AS builder
+FROM golang:1.23.1-alpine3.20 AS builder
 
-ENV WALG_VERSION=v0.2.15
+ENV WALG_VERSION=v3.0.3
 ENV BROTLI_VERSION=v1.0.7
 
 RUN set -ex \

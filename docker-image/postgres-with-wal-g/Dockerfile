@@ -1,4 +1,4 @@
-FROM stephaneklein/wal-g:v0.2.15-alpine3.11.5 AS wal-g
+FROM stephaneklein/wal-g:v3.0.3-alpine3.11.5 AS wal-g
 FROM postgres:12.2-alpine
 
 RUN apk update \
@@ -24,7 +24,7 @@ ENTRYPOINT ["/docker-entrypoint.sh"]
 #ENV AWS_REGION=us-west-2
 #ENV AWS_ENDPOINT=http://s3-like-service:9000
 ENV AWS_S3_FORCE_PATH_STYLE=true
-ENV WALG_COMPRESSION_METHOD brotli
+ENV WALG_COMPRESSION_METHOD zstd
 
 # See environment variables documentation https://github.com/wal-g/wal-g/blob/master/PostgreSQL.md#configuration
 ENV PGHOST=/var/run/postgresql

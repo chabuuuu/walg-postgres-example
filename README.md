@@ -28,7 +28,7 @@ $ ./scripts/build-postgres-with-wal-g-docker-image.sh
 Start PostreSQL instance 1 and Minio (S3 like) server:
 
 ```
-$ docker-compose up -d postgres1 s3
+$ docker compose up -d postgres1 s3
 ```
 
 Wait `postgres1` starting…

@@ -1,7 +1,7 @@
 version: "3.7"
 services:
   postgres1:
-    image: stephaneklein/postgres-with-walg:12.2-alpine-walg0.2.15
+    image: stephaneklein/postgres-with-walg:12.2-alpine-walg3.0.3
     environment:
       PGUSER: postgres
       PGPASSWORD: password
@@ -14,7 +14,7 @@ services:
       AWS_ENDPOINT: "http://s3:9000"
       AWS_S3_FORCE_PATH_STYLE: "true"
       AWS_REGION: us-east-1
-      WALG_COMPRESSION_METHOD: brotli
+      WALG_COMPRESSION_METHOD: zstd
       ARCHIVE_MODE: "on"
       ARCHIVE_TIMEOUT: 60
       #WALG_PGP_KEY_PATH: /keys/wal-g-test-1.pub
@@ -26,7 +26,7 @@ services:
 
   postgres2:
     build: ./docker-image/postgres-with-wal-g/
-    image: stephaneklein/postgres-with-walg:12.2-alpine-walg0.2.15
+    image: stephaneklein/postgres-with-walg:12.2-alpine-walg3.0.3
     environment:
       PGUSER: postgres
       PGPASSWORD: password
@@ -39,7 +39,7 @@ services:
       AWS_ENDPOINT: "http://s3:9000"
       AWS_S3_FORCE_PATH_STYLE: "true"
       AWS_REGION: us-east-1
-      WALG_COMPRESSION_METHOD: brotli
+      WALG_COMPRESSION_METHOD: zstd
       ARCHIVE_MODE: "off"
       #WALG_PGP_KEY_PATH: /keys/wal-g-test-1.private
     volumes:
